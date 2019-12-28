@@ -17,4 +17,9 @@
         android:title="Implicit Intents"
         app:showAsAction="never"
         android:id="@+id/implicit_intents"/>
+
+    <item
+        android:title="RecyclerView"
+        app:showAsAction="never"
+        android:id="@+id/RecyclerView"/>
 </menu>
