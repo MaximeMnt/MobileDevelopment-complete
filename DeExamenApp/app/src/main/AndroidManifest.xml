@@ -9,11 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities_intents_second"
+        <activity
+            android:name=".RecyclerView"
+            android:label="@string/title_activity_recycler_view"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Implicit_Intents" />
+        <activity
+            android:name=".activities_intents_second"
             android:parentActivityName=".Activities_Intents">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.deexamenapp.Activities_Intents"/>
+                android:value="com.example.deexamenapp.Activities_Intents" />
         </activity>
         <activity android:name=".Activities_Intents" />
         <activity android:name=".ScrollingView" />

@@ -54,9 +54,20 @@ public class MainActivity extends AppCompatActivity {
             case R.id.activities_intents:
                 launchActivitiesIntents();
                 break;
+
+
+            case R.id.implicit_intents:
+                launchImplicitIntents();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void launchImplicitIntents() {
+        Intent intent = new Intent(this, Implicit_Intents.class);
+        intent.putExtra(EXTRA_MESSAGE,listOptions);
+        startActivityForResult(intent, BOOL_REQUEST);
     }
 
     private void launchActivitiesIntents() {

@@ -12,4 +12,9 @@
         android:title="@string/activities_en_intents"
         app:showAsAction="never"
         android:id="@+id/activities_intents"/>
+
+    <item
+        android:title="Implicit Intents"
+        app:showAsAction="never"
+        android:id="@+id/implicit_intents"/>
 </menu>

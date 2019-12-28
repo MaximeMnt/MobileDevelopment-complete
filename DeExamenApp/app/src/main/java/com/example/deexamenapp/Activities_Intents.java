@@ -33,6 +33,17 @@ public class Activities_Intents extends AppCompatActivity {
         //voor het terugkrijgen van data
         mReplyHeadTextView = findViewById(R.id.text_header_reply);
         mReplyTextView = findViewById(R.id.text_message_reply);
+
+        //voor activity 02.2
+        //checken of savedinstancestate niet null is, als het niet null is, restore de vorige staat van het programma
+        if (savedInstanceState != null){
+            boolean isVisible = savedInstanceState.getBoolean("reply_visible"); //checken of de textview wel degelijk visible was
+            if (isVisible){
+                mReplyHeadTextView.setVisibility(View.VISIBLE);
+                mReplyTextView.setText(savedInstanceState.getString("reply_text")); //get de string van de vorige staat.
+                mReplyTextView.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     //Voor activity 02.2: Activity lifecycle and state
@@ -71,6 +82,17 @@ public class Activities_Intents extends AppCompatActivity {
         super.onDestroy();
         Log.d(LOG_TAG,"onDestroy");
     }
+
+    //voor activity 02.2
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (mReplyHeadTextView.getVisibility() == View.VISIBLE){
+            outState.putBoolean("reply_visible",true);
+            outState.putString("reply_text",mReplyTextView.getText().toString());
+        }
+    }
+
 
     public void launchSecondActivity(View view) {
         Intent intent = new Intent(this, activities_intents_second.class);
