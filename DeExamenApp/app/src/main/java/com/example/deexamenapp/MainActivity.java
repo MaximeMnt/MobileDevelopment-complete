@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.Inet4Address;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final int BOOL_REQUEST = 1;
-    public static final String EXTRA_MESSAGE = "com.example.deexamenapp.extra.MESSAGE";
-    public boolean[] listOptions = {true, true, true};
     public int i = 0;
     public TextView showCount;
 
@@ -59,27 +59,33 @@ public class MainActivity extends AppCompatActivity {
             case R.id.implicit_intents:
                 launchImplicitIntents();
                 break;
+
+            case R.id.RecyclerView:
+                launchRecyclerview();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    private void launchRecyclerview() {
+        Intent intent = new Intent(this, RecyclerView.class);
+        startActivityForResult(intent, BOOL_REQUEST);
+    }
+
     private void launchImplicitIntents() {
         Intent intent = new Intent(this, Implicit_Intents.class);
-        intent.putExtra(EXTRA_MESSAGE,listOptions);
         startActivityForResult(intent, BOOL_REQUEST);
     }
 
     private void launchActivitiesIntents() {
         Intent intent = new Intent(this, Activities_Intents.class);
-        intent.putExtra(EXTRA_MESSAGE, listOptions);
         startActivityForResult(intent, BOOL_REQUEST);
     }
 
 
     private void launchPartB() {
         Intent intent = new Intent(this, ScrollingView.class);
-        intent.putExtra(EXTRA_MESSAGE, listOptions);
         startActivityForResult(intent, BOOL_REQUEST);
     }
 
